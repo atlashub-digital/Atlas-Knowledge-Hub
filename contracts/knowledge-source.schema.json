@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AKH Source Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "source_id",
+    "owner_org",
+    "library",
+    "provider",
+    "classification",
+    "sync_mode",
+    "permission_ref"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "owner_org": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenant_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "library": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "enum": [
+        "notion",
+        "google_drive",
+        "github",
+        "api",
+        "device_bridge",
+        "other"
+      ]
+    },
+    "source_ref": {
+      "type": "string",
+      "description": "Non-secret opaque reference"
+    },
+    "classification": {
+      "enum": [
+        "public",
+        "commercial",
+        "internal",
+        "restricted"
+      ]
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "review",
+        "verified",
+        "published",
+        "archived"
+      ]
+    },
+    "locale": {
+      "type": "string"
+    },
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "municipality": {
+          "type": "string"
+        }
+      }
+    },
+    "permission_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sync_mode": {
+      "enum": [
+        "event",
+        "poll",
+        "manual",
+        "live_only"
+      ]
+    },
+    "valid_from": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "valid_to": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "version": {
+      "type": "string"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "license": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

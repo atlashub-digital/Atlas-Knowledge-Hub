@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { authorized, searchAuthorized, rrf } from '../src/policy.mjs';
+const docs = JSON.parse(readFileSync(new URL('../examples/synthetic-sources.json', import.meta.url),'utf8'));
+const A={tenantId:'tenant-A',scopes:['knowledge:read'],allowedLibraries:['domains/real-estate/PT/Lisboa','clients/tenant-A','clients/tenant-B']};
+test('client B cannot be read by A, even when library is requested',()=>assert.equal(authorized(docs[2],A),false));
+test('client A can read its own approved document',()=>assert.equal(authorized(docs[1],A),true));
+test('draft never retrieved',()=>assert.equal(authorized(docs[3],{...A,allowedLibraries:['domains/healthcare/administrative']}),false));
+test('missing scope rejects',()=>assert.equal(authorized(docs[0],{...A,scopes:[]}),false));
+test('missing library grant rejects',()=>assert.equal(authorized(docs[0],{...A,allowedLibraries:[]}),false));
+test('search cannot leak B even when query matches',()=>assert.deepEqual(searchAuthorized(docs,A,'Segredo'),[]));
+test('search returns citations for authorized docs',()=>assert.equal(searchAuthorized(docs,A,'visita')[0].source,'example://pt-real-estate'));
+test('rrf returns all ids with stable ranking',()=>assert.deepEqual(rrf([['a','b'],['b','c']]).map(x=>x.id),['b','a','c']));

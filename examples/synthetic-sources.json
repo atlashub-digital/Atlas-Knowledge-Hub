@@ -1,0 +1,53 @@
+[
+  {
+    "id": "d1",
+    "tenantId": null,
+    "library": "domains/real-estate/PT/Lisboa",
+    "country": "PT",
+    "region": "Lisboa",
+    "classification": "public",
+    "lifecycle": "verified",
+    "content": "Um pedido de visita deve ser encaminhado para aprovação humana.",
+    "title": "Procedimento imobiliário sintético",
+    "source": "example://pt-real-estate",
+    "version": "1"
+  },
+  {
+    "id": "d2",
+    "tenantId": "tenant-A",
+    "library": "clients/tenant-A",
+    "country": "PT",
+    "region": "Lisboa",
+    "classification": "internal",
+    "lifecycle": "verified",
+    "content": "A imobiliária fictícia A utiliza calendário interno.",
+    "title": "Procedimento interno A — dados fictícios",
+    "source": "example://tenant-a",
+    "version": "1"
+  },
+  {
+    "id": "d3",
+    "tenantId": "tenant-B",
+    "library": "clients/tenant-B",
+    "country": "BR",
+    "region": "GO",
+    "classification": "restricted",
+    "lifecycle": "verified",
+    "content": "Segredo sintético da empresa fictícia B.",
+    "title": "Procedimento interno B — dados fictícios",
+    "source": "example://tenant-b",
+    "version": "1"
+  },
+  {
+    "id": "d4",
+    "tenantId": null,
+    "library": "domains/healthcare/administrative",
+    "country": "BR",
+    "classification": "public",
+    "lifecycle": "draft",
+    "content": "Rascunho não aprovado com conteúdo fictício.",
+    "title": "Documento draft",
+    "source": "example://draft",
+    "version": "1"
+  }
+]

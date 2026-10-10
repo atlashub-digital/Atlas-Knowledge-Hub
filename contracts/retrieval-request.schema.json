@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AKH Retrieval Request v1 (caller context server-derived)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "query",
+    "purpose"
+  ],
+  "properties": {
+    "query": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "purpose": {
+      "enum": [
+        "answer",
+        "cite",
+        "asset_discovery",
+        "agent_context"
+      ]
+    },
+    "locale": {
+      "type": "string"
+    },
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "country": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      }
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 20
+    },
+    "required_freshness_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "library_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 20
+    }
+  },
+  "description": "Do not accept tenant or agent claims here; derive from verified gateway principal."
+}
