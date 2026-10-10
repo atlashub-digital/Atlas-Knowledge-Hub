@@ -1,7 +1,7 @@
 # Atlas Knowledge Hub (AKH)
 
 > **AtlasHub · Knowledge infrastructure for the Augmented Enterprise**  
-> **Baseline v0.1.0 · 2026-10-10 · Public architecture / engineering foundation · Status: proposal + tested policy prototype, NOT deployed**
+> **Baseline v0.1.1 · 2026-10-10 · Public architecture / engineering foundation · Status: proposal + tested policy prototype, NOT deployed**
 
 The **Atlas Knowledge Hub** is the governed, reusable knowledge layer consumed by people, AtlasHub AI Workforce / Hermes agents, Atlas Media Factory (AMF), independent ventures, workspaces and customer deployments. **Not another company, agent orchestration platform, generic chat app or replacement for Notion/Drive/GitHub.**
 
@@ -23,6 +23,8 @@ The **Atlas Knowledge Hub** is the governed, reusable knowledge layer consumed b
 | Live CRM, inventory, bookings and prices | Source operational system | Tool/API lookup, **not stale RAG** |
 
 ## Architecture at a glance
+
+![Atlas Knowledge Hub architecture](assets/architecture.svg)
 
 ```mermaid
 flowchart LR

@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.1.1] — 2026-10-10 — Repository QA and access hygiene
+### Added
+- GitHub Actions for policy tests, markdown link validation and synthetic demo.
+- Public-repo CONTRIBUTING and SECURITY guides.
+- Portable SVG architecture diagram linked from README.
+### Updated
+- Documentation/contract baseline reclassified as v0.1.1; no live deployment implied.
+
+
 ## [0.1.0] — 2026-10-10 — Research and engineering baseline
 ### Added
 - Full discoverable architecture and executive/engineering/security reading paths.

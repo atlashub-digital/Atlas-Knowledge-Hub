@@ -1,12 +1,13 @@
 {
   "name": "@atlashub/atlas-knowledge-hub-reference",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "type": "module",
   "description": "Safe reference policy POC for Atlas Knowledge Hub",
   "scripts": {
     "test": "node --test test/*.test.mjs",
-    "demo": "node src/demo.mjs"
+    "demo": "node src/demo.mjs",
+    "check:docs": "node scripts/check-links.mjs"
   },
   "engines": {
     "node": ">=20"
