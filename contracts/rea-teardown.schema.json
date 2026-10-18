@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ARE / REA teardown draft contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "reportId",
+    "tenantId",
+    "sourceUrl",
+    "requestedAt",
+    "toolVersion",
+    "lifecycle",
+    "summary",
+    "evidence",
+    "inferences",
+    "limitations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1"
+    },
+    "reportId": {
+      "type": "string",
+      "minLength": 3
+    },
+    "tenantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "requestedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "toolVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "lifecycle": {
+      "enum": [
+        "draft",
+        "review",
+        "verified",
+        "published",
+        "archived"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "captureMethod",
+          "observation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "captureMethod": {
+            "enum": [
+              "rea",
+              "browser",
+              "documentation",
+              "human"
+            ]
+          },
+          "observation": {
+            "type": "string"
+          },
+          "artifactRef": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "inferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim",
+          "basis",
+          "confidence"
+        ],
+        "properties": {
+          "claim": {
+            "type": "string"
+          },
+          "basis": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confidence": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sourceVersion": {
+      "type": "string"
+    },
+    "approvedBy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "approvedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    }
+  }
+}
