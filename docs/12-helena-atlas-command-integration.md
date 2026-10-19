@@ -7,6 +7,11 @@ Parent mission: [Workspaces #3](https://github.com/atlashub-digital/AtlasHub-Wor
 - Synthetic negative tests for tenant isolation, missing scopes, dangling edges, and duplicate relationships.
 - Draft contract for evidence-attributed REA reports. Not a real REST API, Chrome runner, ingest worker, database or Hermes connection.
 
+## Delivery ownership (Founder update 2026-10-19)
+- **Claude Code** owns all engineering: memory/knowledge comparison, AKH API, ingestion, Galaxy API, REA adapter, test and PRs. **Codex is a fallback replacement only**, not a parallel executor.
+- **Helena** owns existing Hermes runtime, infrastructure, staging credentials, Cloudflare/Vercel/Supabase, secrets, RLS review, change windows, production deploy and rollback approval.
+- No work assigned to additional agents. Development requires no privileged/root production SSH; access must be scoped to staging and logged.
+
 ## Integration guardrails
 - Knowledge sources remain canonical in GitHub / Notion / Drive, stored with version, owner, provenance, lifecycle, grants, delete/revoke status. New voice-captured knowledge is a **draft** pending approval; never silently edits source truth.
 - Knowledge Gateway enforces auth+ACL **before ranking and before LLM calls**; graph results are **server filtered**, even if UI checks tenant.
@@ -15,7 +20,7 @@ Parent mission: [Workspaces #3](https://github.com/atlashub-digital/AtlasHub-Wor
 - REA only on own/public/authorized sites via sandbox runner; no credentials/cookies from user's browser; loopback Chrome debugging, SSRF defenses and cleanup. Evidence vs inference must be explicit.
 - Prove real delivery with small approved source set, retrieval citations, revoked source no longer retrievable, and real report in Galaxy. No production claims without staging tests.
 
-## Codex work sequence
+## Single engineering executor work sequence (Claude Code, or Codex as substitute)
 1. Confirm existing contracts/schema/policy and tests; write ADR on knowledge motor.
 2. Build source registry, authoritative tenant/service-principal binding and filtered read service in staging.
 3. Add ingestion and version/revoke semantics for selected GitHub + Drive/Notion folders, using synthetic fixtures first.
